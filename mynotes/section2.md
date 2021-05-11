@@ -46,6 +46,10 @@ docker run -it busybox sh
 The key is the it flag to attach our STDIN in a nicely formatted way. The downside is that
 we won't be running any other process in our container.
 
+To run container in detached mode
+docker run -d <container name>
+
+
 ## Listing all running containers
 docker ps
 

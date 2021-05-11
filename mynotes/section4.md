@@ -45,3 +45,27 @@ Note the colon between the port on local PC and the port in the container
 
 
 ## Specifying a Working Directory
+
+We can do that with the WORKDIR <root dir> instruction.
+
+## Unnecessary rebuilds
+
+Changes in the app are not automatically deployed to the container! We need to
+rebuild the image to get those changes in the app.
+
+Problem is that in the example,
+```
+COPY ./ ./
+npm install
+```
+
+So every time we change the app files, npm install will be run again. How can we
+solve this? A simple solution is to split the copy process in two:
+```
+COPY ./package.json ./
+RUN npm install
+COPY ./ ./
+```
+Now, only when ./package.json is changed we'll need to rerun the npm install step.
+
+You can try both options to compare the time!
