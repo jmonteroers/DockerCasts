@@ -1,0 +1,15 @@
+# version of Docker compose
+version: '3'
+
+# here's what we want you to do
+services:
+  redis-server:
+    image: 'redis'
+  node-app:
+    # specify restart policy (always, on-failure)
+    restart: on-failure
+    # build from Dockerfile in current directory
+    build: .
+    # a list with dashes represents an array in YML
+    ports:
+      - "4001:8081"
