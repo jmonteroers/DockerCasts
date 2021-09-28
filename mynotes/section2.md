@@ -68,7 +68,7 @@ To see all docker containers that have been run on our computer:
 ```
 docker ps --all
 ```
-To remove stopped containers,
+To remove stopped containers' image,
 ```
 docker system prune
 ```
